@@ -62,7 +62,20 @@ export default function Chirp({ chirp }) {
                             <button className="mt-4" onClick={() => { setEditing(false); reset(); clearErrors(); }}>Cancel</button>
                         </div>
                     </form>
-                    : <p className="mt-4 text-lg text-gray-900">{chirp.message}</p>
+
+                       : <div className='mt-4 flex flex- justify-start items-center'>
+                         {chirp.image && (
+                             <img
+                                 src={`/storage/${chirp.image}`}
+                                 alt="Chirp"
+                                 className='w-24 h-24 mr-4 cover'
+                             />
+                         )}
+
+                    <div className='flex justify-center flex-col'>
+                        <p className="mt-4 text-lg text-gray-900">{chirp.message}</p>
+                     </div>
+                </div>
                 }
             </div>
         </div>
